@@ -1,17 +1,39 @@
-%h1 Listing links
+.menubar
+	%ul.nav
+		%li
+			%span.menuItem.title= "Moc"
+		- if user_signed_in?
+			%li
+				= link_to("link") do
+					%span.menuItem= "Links"
+			%li
+				= link_to("feed") do
+					%span.menuItem= "Feeds"
+			
+			%li.right
+				= link_to new_link_path do
+					%span.menuItem= "New Link"
+			
+			%li.right
+				= link_to("logout", :method => "delete") do
+					%span.menuItem= "Logout"
+			%li.right
+				%a{:href => "me"}
+					%span.menuItem= "Profile"
+				
+		- else
+			%li.right
+				%a{:href => "register"}
+					%span.menuItem= "Register"
+			%li.right
+				%a{:href => "login"}
+					%span.menuItem= "Login"
 
-%table
-  %tr
-    %th
-    %th
-    %th
-
-  - @links.each do |link|
-    %tr
-      %td= link_to 'Show', link
-      %td= link_to 'Edit', edit_link_path(link)
-      %td= link_to 'Destroy', link, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Link', new_link_path
+.container
+	- @links.each do |link|
+		- if current_member.email == link.owner
+			%section
+				%header
+					%h1=link.title
+				%article
+					%p=link.content

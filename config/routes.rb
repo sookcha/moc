@@ -1,9 +1,14 @@
 Moc::Application.routes.draw do
-  devise_for :users
+  resources :links
 
+
+  devise_for :users
+  
 	resources :links
 
 	root :to => "main#index"
+  
+  match "link", :to => "links#index"
   
   devise_scope :user do
     get "login", :to => "devise/sessions#new"

@@ -1,5 +1,6 @@
 @import "lesshat";
 
+@lightBlue: #34495E;
 @darkBlue: #2C3E50;
 @lightGreen: #1ABC9C;
 @white: #FFFFFF;
@@ -11,8 +12,11 @@ color: @lightGreen;
 text-shadow: 1px 1px #FFF;
 }
 
+a {
+text-decoration: none; 
+}
 
-a:hover {
+a:hover > span {
 color: @lightGreen;
 }
 
@@ -30,7 +34,7 @@ margin-right:auto;
 .menubar{
 width:auto;
 height:50px;
-background-color: @darkBlue;
+background-color: @lightBlue;
 }
 
 ul.nav > li {

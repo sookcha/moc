@@ -2,12 +2,14 @@
 	%ul.nav
 		%li
 			%span.menuItem.title= "Moc"
-		%li
-			%span.menuItem= "Links"
-		%li
-			%span.menuItem= "Feeds"
-			
 		- if user_signed_in?
+			%li
+				= link_to("link") do
+					%span.menuItem= "Links"
+			%li
+				= link_to("feed") do
+					%span.menuItem= "Feeds"
+			
 			%li.right
 				= link_to("logout", :method => "delete") do
 					%span.menuItem= "Logout"
@@ -24,4 +26,6 @@
 					%span.menuItem= "Login"
 
 .container
-	%h1="Moc."
+	%h1="Friends' feeds."
+	%h2="내 친구들의 피드."
+	%p="Nothing to see here. Move along."

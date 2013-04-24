@@ -1,5 +1,17 @@
 %p#notice= notice
 
+%p
+  %b Title:
+  = @link.title
+%p
+  %b Url:
+  = @link.url
+%p
+  %b Owner:
+  = @link.owner
+%p
+  %b Content:
+  = @link.content
 
 = link_to 'Edit', edit_link_path(@link)
 \|

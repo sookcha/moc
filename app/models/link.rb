@@ -1,3 +1,3 @@
 class Link < ActiveRecord::Base
-  # attr_accessible :title, :body
+  attr_accessible :content, :owner, :title, :url
 end
