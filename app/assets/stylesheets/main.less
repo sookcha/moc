@@ -3,6 +3,18 @@
 @darkBlue: #2C3E50;
 @lightGreen: #1ABC9C;
 @white: #FFFFFF;
+@lightSilver: #ECF0F1;
+
+::selection { 
+background-color: @lightSilver;
+color: @lightGreen;
+text-shadow: 1px 1px #FFF;
+}
+
+
+a:hover {
+color: @lightGreen;
+}
 
 html,body {
 font-family: "Helvetica Neue",Helvetica,sans-serif;
@@ -15,10 +27,15 @@ margin-left:auto;
 margin-right:auto;
 }
 
+.menubar{
+width:auto;
+height:50px;
+background-color: @darkBlue;
+}
+
 ul.nav > li {
 float:left;
 margin: 10px;
-height: 100%;
 }
 
 ul.nav > li.right{
@@ -27,17 +44,13 @@ float:right;
 
 ul {
 list-style: none;
-padding:2px;
-margin: 0 10px 0 0;
+padding:3px 20px;
+width:940px;
+height: 44px;
+margin: auto;
 }
 
 span.menuItem {
 color:white;
 font-size: 15pt;
-}
-
-.menubar{
-width:auto;
-height:50px;
-background-color: @darkBlue;
 }

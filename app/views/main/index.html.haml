@@ -1,16 +1,17 @@
 .menubar
 	%ul.nav
 		%li
-			%span.menuItem= "Moc"
+			%span.menuItem.title= "Moc"
 		%li
 			%span.menuItem= "Links"
 		%li
 			%span.menuItem= "Feeds"
 			
 		%li.right
-			%span.menuItem.right= "Register"
+			%a{:href=>"/"}
+				%span.menuItem= "Register"
 		%li.right
-			%span.menuItem.right= "Login"
+			%span.menuItem= "Login"
 
 .container
 	%h1="Moc."
