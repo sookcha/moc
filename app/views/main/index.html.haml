@@ -14,7 +14,7 @@
 				= link_to("logout", :method => "delete") do
 					%span.menuItem= "Logout"
 			%li.right
-				%a{:href => "me"}
+				%a{:href => current_user.username}
 					%span.menuItem= "Profile"
 				
 		- else

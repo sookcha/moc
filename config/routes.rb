@@ -1,10 +1,7 @@
 Moc::Application.routes.draw do
   resources :links
-
-  devise_for :users
   
-	resources :links
-
+  devise_for :users
 	root :to => "main#index"
   
   namespace :api do
@@ -18,4 +15,7 @@ Moc::Application.routes.draw do
     delete "logout", :to => "devise/sessions#destroy"
     get "register", :to => "devise/registrations#new"
   end
+  
+  match '/:username' => "users#show"
+  
 end
