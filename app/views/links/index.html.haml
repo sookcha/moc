@@ -35,7 +35,7 @@
 		- if current_user.email == link.owner
 			%section
 				%header
-					%h1= link.title
+					%h1.linkTitle= link.title
 					=link_to (link.url) do
 						%span.url= link.url
 				%article

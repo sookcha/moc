@@ -136,6 +136,7 @@ DEPENDENCIES
   devise
   haml-rails
   jquery-rails
+  json
   less-rails
   rails (= 3.2.13)
   sqlite3
