@@ -32,11 +32,10 @@
 
 .container
 	- @links.each do |link|
-		- if current_user.username == link.owner
-			%section
-				%header
-					%h1.linkTitle= link.title
-					=link_to (link.url) do
-						%span.url= link.url
-				%article
-					%p=link.content
+		%section
+			%header
+				%h1.linkTitle= link.title
+				=link_to (link.url) do
+					%span.url= link.url
+			%article
+				%p=link.content

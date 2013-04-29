@@ -2,7 +2,7 @@ class LinksController < ApplicationController
   # GET /links
   # GET /links.json
   def index
-    @links = Link.all
+    @links = User.find_by_username(current_user.username).link
 
     respond_to do |format|
       format.html # index.html.erb
@@ -40,7 +40,7 @@ class LinksController < ApplicationController
   # POST /links
   # POST /links.json
   def create
-    params[:link]["owner"] = current_user.username
+    params[:link]["user_id"] = current_user.id
     
     @link = Link.new(params[:link])
 
