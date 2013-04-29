@@ -19,7 +19,7 @@
 				= link_to("logout", :method => "delete") do
 					%span.menuItem= "Logout"
 			%li.right
-				%a{:href => "me"}
+				%a{:href => current_user.username}
 					%span.menuItem= "Profile"
 				
 		- else
@@ -32,7 +32,7 @@
 
 .container
 	- @links.each do |link|
-		- if current_user.email == link.owner
+		- if current_user.username == link.owner
 			%section
 				%header
 					%h1.linkTitle= link.title
