@@ -1,0 +1,36 @@
+.menubar
+	%ul.nav
+		%li
+			= link_to("/") do
+				%span.menuItem.title= "Moc"
+		- if user_signed_in?
+			%li
+				= link_to("links") do
+					%span.menuItem= "Links"
+			%li
+				= link_to("feed") do
+					%span.menuItem= "Feeds"
+			
+			%li.right
+				= link_to("logout", :method => "delete") do
+					%span.menuItem= "Logout"
+			%li.right
+				%a{:href => current_user.username}
+					%span.menuItem= "Profile"
+				
+		- else
+			%li.right
+				%a{:href => "register"}
+					%span.menuItem= "Register"
+			%li.right
+				%a{:href => "login"}
+					%span.menuItem= "Login"
+
+.container
+	%h1=@username
+	=link_to "follow" do
+		%span.right= "Follow"
+	.links
+		- @links.each do |link|
+			%h2=link.title
+			%span=link.url

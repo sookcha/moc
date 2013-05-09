@@ -1,7 +1,5 @@
 Moc::Application.routes.draw do
   resources :feeds
-
-
   resources :links
   
   devise_for :users
@@ -20,7 +18,6 @@ Moc::Application.routes.draw do
   end
   
   match "/feed", :to => "feeds#index"
-  
   match "/:username" => "users#show", :except => "/feed"
   
 end

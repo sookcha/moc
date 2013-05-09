@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
   has_many :link
+  has_many :feed
+  has_many :relationships, foreign_key: "follower_id", dependent: :destroy
+  
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
