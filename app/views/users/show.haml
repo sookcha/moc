@@ -28,8 +28,11 @@
 
 .container
 	%h1=@username
-	=link_to "follow" do
+	=link_to follow! do
 		%span.right= "Follow"
+	%span.right= @user.followers.count
+	%span.right= @user.following.count
+	
 	.links
 		- @links.each do |link|
 			%h2=link.title
