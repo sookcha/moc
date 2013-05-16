@@ -27,8 +27,8 @@
 					%span.menuItem= "Login"
 
 .container
-	%h1=@username
-	=link_to follow! do
+	%h1= @userName
+	=link_to("follow/" + @userName, :method => :post) do
 		%span.right= "Follow"
 	%span.right= @user.followers.count
 	%span.right= @user.following.count

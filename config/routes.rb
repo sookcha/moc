@@ -3,7 +3,7 @@ Moc::Application.routes.draw do
   resources :links
   
   devise_for :users
-	root :to => "main#index"
+	root :to => 'main#index'
   
   namespace :api do
     namespace :v1 do
@@ -12,12 +12,13 @@ Moc::Application.routes.draw do
   end
     
   devise_scope :user do
-    get "login", :to => "devise/sessions#new"
-    delete "logout", :to => "devise/sessions#destroy"
-    get "register", :to => "devise/registrations#new"
+    get 'login', :to => 'devise/sessions#new'
+    delete 'logout', :to => 'devise/sessions#destroy'
+    get 'register', :to => 'devise/registrations#new'
   end
   
-  match "/feed", :to => "feeds#index"
-  match "/:username" => "users#show", :except => "/feed"
+  post '/follow/:userName', :to => 'users#follow'
   
+  match '/feed', :to => 'feeds#index'
+  match '/:userName' => 'users#show', :except => ['/feed','/follow']
 end
