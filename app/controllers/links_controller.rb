@@ -2,7 +2,7 @@ class LinksController < ApplicationController
   # GET /links
   # GET /links.json
   def index
-    @links = User.find_by_username(current_user.username).link
+    @links = User.find_by_username(current_user.username).links
 
     respond_to do |format|
       format.html # index.html.erb

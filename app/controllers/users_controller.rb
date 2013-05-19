@@ -3,7 +3,6 @@ class UsersController < ApplicationController
     @userName = params[:userName]
     @user = User.find_by_username(@userName)
     @links = @user.link
-    @c = current_user
   end
   
   def follow

@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  has_many :link
-  has_many :feed
+  has_many :links
+  has_many :feeds
   
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
   has_many :following, through: :relationships, source: :following
