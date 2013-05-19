@@ -18,6 +18,7 @@ Moc::Application.routes.draw do
   end
   
   post '/follow/:userName', :to => 'users#follow'
+  delete '/unfollow/:userName', :to =>'users#unfollow'
   
   match '/feed', :to => 'feeds#index'
   match '/:userName' => 'users#show', :except => ['/feed','/follow']

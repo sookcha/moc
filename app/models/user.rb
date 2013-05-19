@@ -20,16 +20,14 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email,:username, :password, :password_confirmation, :remember_me
   
-  def following?(other_user)
-    relationships.find_by_following_id(other_user.id)
+  def following?(current_user,other_user)
+    relationA = Relationship.find_by_following_id(other_user.id)
+    relationB = Relationship.find_by_follower_id(current_user.id)
+    
+    if relationA != nil && relationB != nil
+      true
+    else
+      false
+    end
   end
-
-  def follow!(other_user)
-    relationships.create!(following_id: other_user.id)
-  end
-  
-  def unfollow!(other_user)
-    relationships.find_by_following_id(other_user.id).destroy
-  end
-  
 end

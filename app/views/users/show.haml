@@ -28,10 +28,16 @@
 
 .container
 	%h1= @userName
-	=link_to("follow/" + @userName, :method => :post) do
-		%span.right= "Follow"
-	%span.right= @user.followers.count
-	%span.right= @user.following.count
+	- if @user.following?(current_user,@user)
+		=link_to("unfollow/" + @userName, :method => :destroy) do
+			%span.right= "Unfollow"
+		
+	- else
+		=link_to("follow/" + @userName, :method => :post) do
+			%span.right= "Follow"
+			
+	%span.right= "Following : " + @user.following.count.to_s
+	%span.right= "Follower : " + @user.followers.count.to_s
 	
 	.links
 		- @links.each do |link|
