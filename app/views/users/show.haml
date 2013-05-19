@@ -29,7 +29,7 @@
 .container
 	%h1= @userName
 	- if @user.following?(current_user,@user)
-		=link_to("unfollow/" + @userName, :method => :destroy) do
+		=link_to("unfollow/" + @userName, :method => :delete) do
 			%span.right= "Unfollow"
 		
 	- else
