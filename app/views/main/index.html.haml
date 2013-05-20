@@ -26,17 +26,16 @@
 					%span.menuItem= "Login"
 
 .container
-	=@followingUsers
-	-if user_signed_in?
-		%p="Following : " + @followingUsers.length.to_s
-	
+	-if user_signed_in?	
+		=@class
 		- if @allActivities == nil
 			%h1="Friends' feeds."
 			%p="Nothing to see here. Move along."
 		- else
-			%ul
-				- @allActivities.each do |activity|
-					%li
-						%span= activity
+			- @allActivities.each do |activity|
+				.activity
+					%h1= activity[0].title
+					%span.url= activity[0].url
+					%span.content= activity[0].content
 	- else
 		%p="Nothing to see here. Move along."
