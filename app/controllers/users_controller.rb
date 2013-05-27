@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def show
     @userName = params[:userName]
     @user = User.find_by_username(@userName)
-    @links = @user.link
+    @links = @user.links
   end
   
   def follow

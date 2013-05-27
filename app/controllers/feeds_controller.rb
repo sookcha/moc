@@ -2,7 +2,7 @@ class FeedsController < ApplicationController
   # GET /feeds
   # GET /feeds.json
   def index
-    @feeds = User.find_by_username(current_user.username).feed.all
+    @feeds = User.find_by_username(current_user.username).feeds.all
 
     respond_to do |format|
       format.html # index.html.erb

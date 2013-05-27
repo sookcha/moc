@@ -1,10 +1,11 @@
 class MainController < ApplicationController
   def index
     if user_signed_in?
-      @followingUsers = current_user.following.all
+      @followingUsers = current_user.following
       @allActivities = []
-      
-  		@followingUsers.each do |user|
+      @feeds = Link.from_users_followed_by(current_user)
+        
+  		@followingUsers.each do |user|       
         @allActivities << user.links.all
       end
     end
