@@ -1,5 +1,5 @@
-.menubar
-	%ul.nav
+.left-bar
+	%ul
 		%li
 			%span.menuItem.title= "Moc"
 		- if user_signed_in?
@@ -33,7 +33,7 @@
 		- else
 			- @feeds.sort.reverse.each do |activity|
 				.activity
-					%h1= activity.title
+					%h3= activity.title
 					%span.option.date= activity.created_at
 					%span.option.url= activity.url
 					%span.option.author= @followingUsers.find_by_id(activity.user_id).username
