@@ -1,27 +1,27 @@
 .left-bar
 	%ul
 		%li
-			%span.menuItem.title= "Moc"
+			%span.item.title= "Moc"
 		- if user_signed_in?
 			%li
 				= link_to("links") do
-					%span.menuItem= "Links"
+					%span.item= "Links"
 			%li
 				= link_to("feed") do
-					%span.menuItem= "Feeds"
+					%span.item= "Feeds"
 			
-			%li.right
+			%li
 				= link_to("logout", :method => "delete") do
-					%span.menuItem= "Logout"
-			%li.right
+					%span.item= "Logout"
+			%li
 				%a{:href => current_user.username}
-					%span.menuItem= "Profile"
+					%span.item= "Profile"
 				
 		- else
-			%li.right
+			%li
 				%a{:href => "register"}
 					%span.menuItem= "Register"
-			%li.right
+			%li
 				%a{:href => "login"}
 					%span.menuItem= "Login"
 
