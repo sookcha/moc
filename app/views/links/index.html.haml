@@ -9,13 +9,15 @@
 			%li
 				= link_to("feed") do
 					%span.item= "Feeds"
+					
+			%li
+				%a{:href => current_user.username}
+					%span.item= "Profile"
 			
 			%li
 				= link_to("logout", :method => "delete") do
 					%span.item= "Logout"
-			%li
-				%a{:href => current_user.username}
-					%span.item= "Profile"
+			
 				
 		- else
 			%li

@@ -27,6 +27,7 @@ gem 'jquery-rails'
 gem 'therubyracer', :platform => :ruby
 
 gem 'json'
+gem 'uri-handler'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
