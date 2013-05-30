@@ -1,18 +1,36 @@
-%p#notice= notice
+.left-bar
+	%ul
+		%li
+			%span.item.title= "Moc"
+		- if user_signed_in?
+			%li
+				= link_to("links") do
+					%span.item= "Links"
+			%li
+				= link_to("feed") do
+					%span.item= "Feeds"
+			
+			%li
+				%a{:href => current_user.username}
+					%span.item= "Profile"
+					
+			%li
+				=link_to("logout", :method => "delete") do
+					%span.item= "Logout"
+				
+		- else
+			%li
+				%a{:href => "login"}
+					%span.item= "Login"
+		
+			%li
+				%a{:href => "register"}
+					%span.item= "Register"
 
-%p
-  %b Title:
-  = @link.title
-%p
-  %b Url:
-  = @link.url
-%p
-  %b User ID:
-  = @link.user_id
-%p
-  %b Content:
-  = @link.content
-
-= link_to 'Edit', edit_link_path(@link)
-\|
-= link_to 'Back', links_path
+.container
+	%section
+		=link_to("/discuss/" + @link.title) do
+			%h3= @link.title
+		%span.item= @link.url
+		%span.item= "Written by " + @link.user.username
+		%span.item.content= @link.content

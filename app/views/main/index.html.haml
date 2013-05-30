@@ -20,11 +20,12 @@
 				
 		- else
 			%li
-				%a{:href => "register"}
-					%span.item= "Register"
-			%li
 				%a{:href => "login"}
 					%span.item= "Login"
+		
+			%li
+				%a{:href => "register"}
+					%span.item= "Register"
 
 .container
 	- if user_signed_in?
@@ -34,12 +35,14 @@
 		- else
 			- @feeds.sort.reverse.each do |activity|
 				.activity
-					=link_to("/discuss/" + activity.title) do
+					=link_to(activity.url) do
 						%h3= activity.title
-						
+						%span.author= "— " +@followingUsers.find_by_id(activity.user_id).username
+					=link_to("/discuss/" + activity.title) do
+						%span.author= " — permalink"
+					
 					%span.option.date= activity.created_at
 					%span.option.url= activity.url
-					%span.option.author= @followingUsers.find_by_id(activity.user_id).username
-					%span.option.content= activity.content
+					
 	- else
 		%p="Nothing to see here. Move along."
