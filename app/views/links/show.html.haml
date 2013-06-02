@@ -1,7 +1,8 @@
 .left-bar
 	%ul
-		%li
-			%span.item.title= "Moc"
+		%header
+			= link_to("/") do
+				%span.item.title= "Moc"
 		- if user_signed_in?
 			%li
 				= link_to("links") do
@@ -11,7 +12,7 @@
 					%span.item= "Feeds"
 			
 			%li
-				%a{:href => current_user.username}
+				%a{:href => "/"+current_user.username}
 					%span.item= "Profile"
 					
 			%li
@@ -30,7 +31,7 @@
 .container
 	%section
 		=link_to("/discuss/" + @link.title) do
-			%h3= @link.title
+			%h1.title= @link.title
 		%span.item= @link.url
 		%span.item= "Written by " + @link.user.username
 		%span.item.content= @link.content

@@ -1,7 +1,8 @@
 .left-bar
 	%ul
-		%li
-			%span.item.title= "Moc"
+		%header
+			= link_to("/") do
+				%span.item.title= "Moc"
 		- if user_signed_in?
 			%li
 				= link_to("links") do
@@ -15,17 +16,17 @@
 					%span.item= "Profile"
 					
 			%li
-				= link_to("logout", :method => "delete") do
+				=link_to("logout", :method => "delete") do
 					%span.item= "Logout"
-					
 				
 		- else
 			%li
-				%a{:href => "register"}
-					%span.menuItem= "Register"
-			%li
 				%a{:href => "login"}
-					%span.menuItem= "Login"
+					%span.item= "Login"
+		
+			%li
+				%a{:href => "register"}
+					%span.item= "Register"
 
 .container
 	%h1= @userName
@@ -39,8 +40,12 @@
 			
 	%span.right= "Following : " + @user.following.count.to_s
 	%span.right= "Follower : " + @user.followers.count.to_s
-	
-	.links
-		- @links.each do |link|
-			%h2=link.title
-			%span=link.url
+		
+	- @links.each do |link|
+		.activity
+			=link_to("/discuss/" + link.title) do
+				%h2=link.title
+			=link_to(link.url) do
+				%i.icon-link
+				
+			%span.option.url=link.url

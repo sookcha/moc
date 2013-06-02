@@ -1,6 +1,9 @@
 Moc::Application.routes.draw do
   resources :feeds
-  resources :links
+  
+  resources :links do
+    resources :comments
+  end
   
   devise_for :users
 	root :to => 'main#index'
