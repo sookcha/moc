@@ -35,3 +35,25 @@
 		%span.item= @link.url
 		%span.item= "Written by " + @link.user.username
 		%span.item.content= @link.content
+		
+		%h2 Comments
+		- @link.comments.each do |comment|
+			%p
+				%b Commenter:
+				#{comment.author}	
+			%p
+				%b Comment:
+				#{comment.body}
+					
+		%h2 Add a comment:
+		= form_for([@link, @link.comments.build]) do |f|
+			.field
+				#{f.label :author}
+				%br
+					#{f.text_field :author}
+			.field
+				#{f.label :body}
+				%br
+					#{f.text_area :body}
+			.actions
+				#{f.submit}
