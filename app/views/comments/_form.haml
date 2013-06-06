@@ -1,0 +1,9 @@
+= form_for([@link, @link.comments.build]) do |f|
+	.field
+		#{f.label :author}
+		#{f.text_field :author}
+	.field
+		#{f.label :body}
+		#{f.text_area :body}
+	.actions
+		#{f.submit}
