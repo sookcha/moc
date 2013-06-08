@@ -28,6 +28,8 @@ class LinksController < ApplicationController
   # GET /links/new.json
   def new
     @link = Link.new
+    
+    @url = Link.find(params[:url]).url
 
     respond_to do |format|
       format.html # new.html.erb
@@ -57,7 +59,7 @@ class LinksController < ApplicationController
       end
     end
   end
-
+  
   # PUT /links/1
   # PUT /links/1.json
   def update

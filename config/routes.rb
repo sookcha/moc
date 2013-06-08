@@ -24,6 +24,7 @@ Moc::Application.routes.draw do
   delete '/unfollow/:userName', :to =>'users#unfollow'
   
   match '/feed', :to => 'feeds#index'
+  match '/add/:url', :to => 'links#new'
   match '/discuss/:title', :to => 'links#show'
   match '/:userName' => 'users#show', :except => ['/feed','/follow']
 end

@@ -34,11 +34,14 @@
 			=link_to("/discuss/" + @link.title) do
 				%h1.title= @link.title
 			%span.item= @link.url
+			=link_to("/add/" + @link.id.to_s) do
+				%span Read it later
 			%span.item= "Written by " + @link.user.username
 			.content
 				%span.item.content= @link.content
 		
 		.comment
-			%h1 Comments
-			=render @link.comments
+			%h1.title Comments
+			%ul.comments
+				=render @link.comments
 			=render "comments/form"
