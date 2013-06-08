@@ -1,8 +1,7 @@
-%p
-	%b Commenter:
-	=comment.author
-</p>
+%ul.comments
+	%li.comment
+		%span.author
+			=comment.author
 
-%p
-	%b Comment
-	=comment.body
+		%span.body
+			=comment.body

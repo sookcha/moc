@@ -30,11 +30,15 @@
 
 .container
 	%section
-		=link_to("/discuss/" + @link.title) do
-			%h1.title= @link.title
-		%span.item= @link.url
-		%span.item= "Written by " + @link.user.username
-		%span.item.content= @link.content
+		%article
+			=link_to("/discuss/" + @link.title) do
+				%h1.title= @link.title
+			%span.item= @link.url
+			%span.item= "Written by " + @link.user.username
+			.content
+				%span.item.content= @link.content
 		
-		=render @link.comments
-		=render "comments/form"
+		.comment
+			%h1 Comments
+			=render @link.comments
+			=render "comments/form"
