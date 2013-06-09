@@ -1,6 +1,7 @@
 %li.comment
 	%span.author
 		=comment.author
-
 	%span.body
 		=comment.body
+	%span.time
+		=comment.created_at.strftime("%b %d, %Y | %H:%M").to_s
