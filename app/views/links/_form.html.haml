@@ -8,12 +8,11 @@
 
   .field
     = f.label :title
-    = f.text_field :title
+    = f.text_field :title, :value => @title
   .field
     = f.label :url
     = f.text_field :url, :value => @url
   .field
-    = f.label :content
-    = f.text_area :content
+    = f.text_area :content, :rows => 3
   .actions
     = f.submit 'Save'

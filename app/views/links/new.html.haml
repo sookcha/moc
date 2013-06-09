@@ -1,5 +1,32 @@
-%h1 New link
+.left-bar
+	%ul
+		%header
+			= link_to("/") do
+				%span.item.title= "Moc"
+		- if user_signed_in?
+			%li
+				= link_to("links") do
+					%span.item= "Links"
+			%li
+				= link_to("feed") do
+					%span.item= "Feeds"
+			
+			%li
+				%a{:href => current_user.username}
+					%span.item= "Profile"
+					
+			%li
+				=link_to("logout", :method => "delete") do
+					%span.item= "Logout"
+				
+		- else
+			%li
+				%a{:href => "login"}
+					%span.item= "Login"
+		
+			%li
+				%a{:href => "register"}
+					%span.item= "Register"
 
-= render 'form'
-
-= link_to 'Back', links_path
+.container
+	=render 'form'

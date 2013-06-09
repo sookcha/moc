@@ -29,8 +29,9 @@ class LinksController < ApplicationController
   def new
     @link = Link.new
     
+    @title = Link.find(params[:url]).title
     @url = Link.find(params[:url]).url
-
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @link }
