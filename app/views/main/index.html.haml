@@ -42,7 +42,8 @@
 						%i.icon-link
 						
 					%span.option.date= activity.created_at
-					%span.option.url= activity.url
+					%span.option.url= activity.url.split("/")[2] + " — " + activity.comments.count.to_s + " comments"
+
 					
 	- else
 		%p="Nothing to see here. Move along."
