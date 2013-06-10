@@ -8,4 +8,12 @@ class CommentsController < ApplicationController
     end
     redirect_to "/discuss/" + @link.title
   end
+  
+  def destroy
+    @link = Link.find(params[:link_id])
+    @comment = @link.comments.find(params[:id])
+    @comment.destroy
+    redirect_to "/discuss/" + @link.title
+  end
+  
 end

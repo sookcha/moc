@@ -7,12 +7,10 @@
           %li= msg
 
   .field
-    = f.label :title
-    = f.text_field :title, :value => @title
+    = f.text_field :title, :value => @title, :placeholder => "Title"
   .field
-    = f.label :url
-    = f.text_field :url, :value => @url
+    = f.text_field :url, :value => @url, :placeholder => "URL"
   .field
-    = f.text_area :content, :rows => 3
+    = f.text_area :content, :rows => 3, :placeholder => "Content"
   .actions
     = f.submit 'Save', :class => "button"
