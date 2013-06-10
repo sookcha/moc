@@ -25,6 +25,8 @@ text-decoration: none;
 
 a > * {
 color: #333;
+.transition(~".2s");
+
 }
 
 a:hover > * {
@@ -73,7 +75,7 @@ display:inline-block;
 }
 
 .button:hover {
-color: @orange;
+color: @lightGreen;
 }
 
 .button {
@@ -90,6 +92,7 @@ border: 0px solid black;
 
 a > h2  {
 margin: 0 0 10px;
+
 }
 
 .option {
@@ -136,6 +139,10 @@ font-size: 12pt;
 .comment > * {
 margin:0 0 10px 0;
 display:block;
+}
+
+span.delete {
+text-decoration: underline;
 }
 
 li {

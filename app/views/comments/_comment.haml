@@ -5,5 +5,7 @@
 		=comment.body
 	%span.time
 		=comment.created_at.strftime("%b %d, %Y | %H:%M").to_s
-	%span.delete
-		=link_to 'Delete', [comment.link, comment], {:confirm => 'Are you sure?', :method => :delete}
+	- if User.find_by_username(comment.author).id == current_user.id	
+		%span.delete
+			=link_to [comment.link, comment], {:confirm => 'Are you sure?', :method => :delete} do
+				%span.item.delete= "Delete"
