@@ -46,8 +46,7 @@
 			.content
 				%span.item.content= @link.content
 		
-		.comment
+		.comments
 			%h1.title Comments
-			%ul.comments
-				=render @link.comments
+			=render @link.comments
 			=render "comments/form"

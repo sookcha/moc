@@ -1,11 +1,24 @@
-%li.comment
+.comment
 	%span.author
 		=comment.author
 	%span.body
 		=comment.body
 	%span.time
 		=comment.created_at.strftime("%b %d, %Y | %H:%M").to_s
+	%span.add
+		=link_to "/comment/add/" + comment.id.to_s do
+			%span.item.add= "Reply"
 	- if User.find_by_username(comment.author).id == current_user.id
 		%span.delete
 			=link_to [comment.link, comment], {:confirm => 'Are you sure?', :method => :delete} do
 				%span.item.delete= "Delete"
+				
+	- if comment.childComment.all != []
+		.comment.child
+			- comment.childComment.each do |childcomment|
+				%span.author
+					=childcomment.author
+				%span.body
+					=childcomment.body
+				%span.time
+					=childcomment.created_at.strftime("%b %d, %Y | %H:%M").to_s

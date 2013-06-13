@@ -1,5 +1,8 @@
 Moc::Application.routes.draw do
   resources :feeds
+  resources :comments do
+    resources :child_comments
+  end
   
   resources :links do
     resources :comments
@@ -27,4 +30,5 @@ Moc::Application.routes.draw do
   match '/add/:url', :to => 'links#new'
   match '/discuss/:title', :to => 'links#show'
   match '/:userName' => 'users#show', :except => ['/feed','/follow']
+  match '/comment/add/:id', :to => "childComments#new"
 end
