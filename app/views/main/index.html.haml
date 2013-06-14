@@ -37,12 +37,14 @@
 			- @feeds.sort.reverse.each do |activity|
 				.activity
 					=link_to("/discuss/" + activity.title) do
-						%h2= activity.title
+						%h1.linkTitle= activity.title
 					=link_to(activity.url) do
 						%i.icon-link
 						
 					%span.option.date= activity.created_at
 					%span.option.url= activity.url.split("/")[2] + " — " + activity.comments.count.to_s + " comments"
+					%span.vote= activity.vote
+					
 
 					
 	- else

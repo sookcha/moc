@@ -31,4 +31,5 @@ Moc::Application.routes.draw do
   match '/discuss/:title', :to => 'links#show'
   match '/:userName' => 'users#show', :except => ['/feed','/follow']
   match '/comment/add/:id', :to => "childComments#new"
+  match '/vote/:id/:action', :to => "links#updateVote"
 end

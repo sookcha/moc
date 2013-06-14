@@ -47,6 +47,7 @@ class LinksController < ApplicationController
   # POST /links.json
   def create
     params[:link]["user_id"] = current_user.id
+    params[:link]["vote"] = 0
     
     @link = Link.new(params[:link])
 
@@ -58,6 +59,15 @@ class LinksController < ApplicationController
         format.html { render action: "new" }
         format.json { render json: @link.errors, status: :unprocessable_entity }
       end
+    end
+  end
+  
+  def updateVote
+    @link = Link.find(params[:id])
+    if params[:action] == "upvote"
+      @link.vote += 1
+    else
+      @link.vote -= 1
     end
   end
   
