@@ -29,8 +29,10 @@ class LinksController < ApplicationController
   def new
     @link = Link.new
     
-    @title = Link.find(params[:url]).title
-    @url = Link.find(params[:url]).url
+    if params[:url] != nil
+      @title = Link.find(params[:url]).title
+      @url = Link.find(params[:url]).url
+    end
     
     respond_to do |format|
       format.html # new.html.erb

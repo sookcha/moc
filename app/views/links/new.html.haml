@@ -13,11 +13,16 @@
 			
 			%li
 				%a{:href => current_user.username}
-					%span.item= "Profile"
+					%span.item= "Profile"	
 					
 			%li
 				=link_to("logout", :method => "delete") do
 					%span.item= "Logout"
+					
+			%li
+				=link_to("add") do
+					.add-button= "New link"
+				
 				
 		- else
 			%li

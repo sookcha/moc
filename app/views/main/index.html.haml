@@ -18,6 +18,10 @@
 			%li
 				=link_to("logout", :method => "delete") do
 					%span.item= "Logout"
+					
+			%li
+				=link_to("add") do
+					.add-button= "New link"
 				
 		- else
 			%li
@@ -42,7 +46,10 @@
 						%i.icon-link
 						
 					%span.option.date= activity.created_at
-					%span.option.url= activity.url.split("/")[2] + " — " + activity.comments.count.to_s + " comments"
+					- if activity.comments.count == 0 || activity.comments.count == 1		
+						%span.option.url= activity.url.split("/")[2] + " — " + activity.comments.count.to_s + " comment"
+					- else
+						%span.option.url= activity.url.split("/")[2] + " — " + activity.comments.count.to_s + " comments"
 					%span.vote= activity.vote
 					
 
