@@ -47,11 +47,9 @@
 						
 					%span.option.date= activity.created_at
 					- if activity.comments.count == 0 || activity.comments.count == 1		
-						%span.option.url= activity.url.split("/")[2] + " — " + activity.comments.count.to_s + " comment"
+						%span.option.url= activity.url.split("/")[2] + " — " + activity.comments.count.to_s + " comment | " + activity.vote.to_s + " votes"
 					- else
-						%span.option.url= activity.url.split("/")[2] + " — " + activity.comments.count.to_s + " comments"
-					%span.vote= activity.vote
-					
+						%span.option.url= activity.url.split("/")[2] + " — " + activity.comments.count.to_s + " comments | " + activity.vote.to_s + " votes"
 
 					
 	- else
