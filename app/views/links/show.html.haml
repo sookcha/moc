@@ -36,8 +36,7 @@
 .container
 	%section
 		%article
-			%h1.title= @link.vote.to_s + " | "
-			%h1.title= @link.title
+			%h1.title= @link.title + " | " + @link.vote.to_s
 			=link_to(@link.url) do
 				%i.icon-link
 			%span.item= "Written by " + @link.user.username
@@ -52,7 +51,8 @@
 				%span.item.content= @link.content
 				
 				.vote
-					.button= "Recommand"
+					=link_to "/vote/" + @link.id.to_s + "/up" do
+						.button= "Recommand"
 					
 		
 		.comments

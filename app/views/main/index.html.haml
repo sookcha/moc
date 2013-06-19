@@ -40,13 +40,13 @@
 		- else
 			- @feeds.sort.reverse.each do |activity|
 				.activity
-					=link_to("/discuss/" + activity.title) do
+					=link_to (activity.url) do
 						%h1.linkTitle= activity.title
-					=link_to(activity.url) do
+					=link_to("/discuss/" + activity.title) do
 						%i.icon-link
 						
 					%span.option.date= activity.created_at
-					- if activity.comments.count == 0 || activity.comments.count == 1		
+					- if activity.comments.count == 0 || activity.comments.count == 1
 						%span.option.url= activity.url.split("/")[2] + " — " + activity.comments.count.to_s + " comment | " + activity.vote.to_s + " votes"
 					- else
 						%span.option.url= activity.url.split("/")[2] + " — " + activity.comments.count.to_s + " comments | " + activity.vote.to_s + " votes"

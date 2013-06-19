@@ -66,11 +66,16 @@ class LinksController < ApplicationController
   
   def updateVote
     @link = Link.find(params[:id])
-    if params[:action] == "upvote"
-      @link.vote += 1
+    puts params[:updown]
+    if params[:updown] == "up"
+      @link.vote = @link.vote + 1
+      puts @link.vote
     else
-      @link.vote -= 1
-    end
+      @link.vote = @link.vote - 1
+    end    
+    @link.save
+    
+    redirect_to "/discuss/" + @link.title
   end
   
   # PUT /links/1
