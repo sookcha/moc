@@ -1,5 +1,5 @@
 = form_for([@link, @link.comments.build]) do |f|
 	.field
-		= f.text_area :body, :rows => 3
+		= f.text_area :body, :rows => 3, :placeholder => "Comment"
 	.actions
 		= f.submit "Add comment", :class => "button"

@@ -1,11 +1,10 @@
 = form_for @link do |f|
 	%header
 		%h3
-			= f.text_field :title, :value => @title, :placeholder => "Title"
-		
-	= f.text_field :url, :value => @url, :placeholder => "URL", :class => "urlfield"
+			= f.text_field :title, :value => @title, :placeholder => "Title", :class => "titlefield"
+			= f.text_field :url, :value => @url, :placeholder => "URL", :class => "urlfield"
 	
 	.content
 		= f.text_area :content, :rows => 3, :placeholder => "Content", :class => "contentfield"
 	.actions
-		= f.submit 'Save', :class => "button"
+		= f.submit 'Publish', :class => "button"
