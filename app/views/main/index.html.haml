@@ -38,25 +38,19 @@
 			%h1="Friends' feeds."
 			%p="Nothing to see here. Move along."
 		- else
-			- @feeds.sort.reverse.each do |activity|
-				.activity
-					=link_to (activity.url) do
-						%h1.linkTitle= activity.title
-					=link_to("/discuss/" + activity.title) do
-						%i.icon-link
+			%ul
+				- @feeds.sort.reverse.each do |activity|
+					%li.feed
+						=link_to (activity.url) do
+							%h1.linkTitle= activity.title
+						=link_to("/discuss/" + activity.title) do
+							%i.icon-link
+						=link_to("/discuss/" + activity.title) do
+							%i.icon-star.right
+						=link_to("") do
+							%i.icon-bookmark.right
+							
 						
-					%span.option.date= activity.created_at
-					- if activity.comments.count == 0 || activity.comments.count == 1
-						%span.url= activity.url.split("/")[2] + " — "
-						=link_to "/discuss/" + activity.title + "#comment" do
-							%span.comment= activity.comments.count.to_s + " comment" 
-						%span.vote= " | " + activity.vote.to_s + " votes"
-					- else
-						%span.url= activity.url.split("/")[2] + " — "
-						=link_to "/discuss/" + activity.title + "#comment" do
-							%span.comment= activity.comments.count.to_s + " comments" 
-						%span.vote= " | " + activity.vote.to_s + " votes"
-
 					
 	- else
 		%p="Nothing to see here. Move along."

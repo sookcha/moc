@@ -93,7 +93,7 @@ class LinksController < ApplicationController
       end
     end
   end
-
+  
   # DELETE /links/1
   # DELETE /links/1.json
   def destroy

@@ -22,7 +22,7 @@ Moc::Application.routes.draw do
     delete 'logout', :to => 'devise/sessions#destroy'
     get 'register', :to => 'devise/registrations#new'
   end
-  
+    
   post '/follow/:userName', :to => 'users#follow'
   delete '/unfollow/:userName', :to =>'users#unfollow'
   

@@ -43,7 +43,7 @@
 			%span.right= "Follow"
 	%span.right= " | "
 	
-	%a{:href=>"javascript:(function(){moc_script=document.createElement('script');moc_script.type = 'text/javascript';moc_script.src = 'http://moc.dev/links.json/1+&user_token=" + current_user.authentication_token + "`'; document.getElementsByTagName('head')[0].appendChild(moc_script);})();", :type=>"button"}= "Moc"
+	%a{:href=>"javascript:(function(){moc_script=document.createElement('script');moc_script.type = 'text/javascript';moc_script.src = 'http://moc.dev/links.json/1&user_token=" + current_user.authentication_token + "; document.getElementsByTagName('head')[0].appendChild(moc_script);})();", :type=>"button"}= "Moc"
 			
 		
 	- @links.each do |link|
