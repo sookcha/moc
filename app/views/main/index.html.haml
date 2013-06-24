@@ -45,9 +45,9 @@
 							%h1.linkTitle= activity.title
 						=link_to("/discuss/" + activity.title) do
 							%i.icon-link
-						=link_to("/discuss/" + activity.title) do
+						=link_to "/vote/" + activity.id.to_s + "/up" do
 							%i.icon-star.right
-						=link_to("") do
+						=link_to "/add/" + activity.id.to_s do
 							%i.icon-bookmark.right
 							
 						

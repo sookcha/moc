@@ -29,11 +29,11 @@
 					%span.item= "Register"
 
 .container
-	- @links.each do |link|
-		%section
-			%header
-				%h1.linkTitle= link.title
+	%ul
+		- @links.each do |link|
+			%li.feed
 				=link_to link.url do
-					%span.url= link.url
-			%article
-				%p=link.content
+					%h1.linkTitle= link.title
+				=link_to "/discuss/" + link.title do
+					%i.icon-link
+		

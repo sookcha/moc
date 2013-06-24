@@ -66,7 +66,6 @@ class LinksController < ApplicationController
   
   def updateVote
     @link = Link.find(params[:id])
-    puts params[:updown]
     if params[:updown] == "up"
       @link.vote = @link.vote + 1
       puts @link.vote
