@@ -80,11 +80,12 @@ class LinksController < ApplicationController
       }
     })
     
+    params[:link]["user_id"] = @user.id
+    
     @link = Link.new(params[:link])
     
     if @link.save
       render :status=>200, :json=>{status: :created}
-      
     end
   end
   
