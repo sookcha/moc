@@ -18,6 +18,10 @@
 			%li
 				=link_to("logout", :method => "delete") do
 					%span.item= "Logout"
+					
+			%li
+				=link_to("add") do
+					%span.add-button.item= "New link"
 				
 		- else
 			%li
@@ -33,7 +37,7 @@
 		- @links.each do |link|
 			%li.feed
 				=link_to link.url do
-					%h1.linkTitle= link.title
+					%span.linkTitle= link.title
 				=link_to "/discuss/" + link.title do
 					%i.icon-link
 		

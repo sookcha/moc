@@ -32,14 +32,19 @@ a:hover > * {
 color: @lightGreen;
 }
 
-
 a > span:hover {
 color: @lightGreen;
 }
 
+span.linkTitle {
+display:inline-block;
+margin:0;
+font-size: 1.6em;
+}
+
 article > a > .title {
 font-size: 40px;
-display:inline-block;
+display:block;
 margin: 0 0 10px 0;
 
 }
@@ -61,7 +66,7 @@ position:fixed;
 }
 
 .right {
-padding: 10px 10px 0 0;
+padding: 5px 10px 0 0;
 float:right;
 }
 
@@ -206,6 +211,8 @@ border-bottom: solid 1px #eee;
 margin: 0 20px;
 padding: 0 10px;
 border-left: solid 3px black;
+border-bottom: none;
+
 }
 
 article {
@@ -215,11 +222,6 @@ margin-bottom: 50px;
 .vote > .item {
 display:inline-block;
 text-transform: uppercase;
-
-}
-
-span.item {
-line-height: 1.4em;
 }
 
 section > span.item {
@@ -231,11 +233,8 @@ margin: 30px 0;
 }
 
 span.item {
-color:black;
-display:block;
-}
+line-height: 1.4em;
 
-h1.linkTitle {
+color:black;
 display:inline-block;
-margin:0;
 }

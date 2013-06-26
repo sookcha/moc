@@ -42,7 +42,7 @@
 				- @feeds.sort.reverse.each do |activity|
 					%li.feed
 						=link_to (activity.url) do
-							%h1.linkTitle= activity.title
+							%span.linkTitle= activity.title					
 						=link_to("/discuss/" + activity.title) do
 							%i.icon-link
 						=link_to "/vote/" + activity.id.to_s + "/up" do
