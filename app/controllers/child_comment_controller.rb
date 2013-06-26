@@ -1,4 +1,4 @@
-class ChildCommentsController < ApplicationController
+class ChildCommentController < ApplicationController
   def new
     @comment = Comment.find(params[:id])
     if @comment == nil

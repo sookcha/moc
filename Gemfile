@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13' 
+gem 'rails', '4.0.0' 
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -11,7 +11,7 @@ gem 'sqlite3'
 # in production environments by default.
 group :assets do
   gem 'less-rails'
-  gem 'coffee-rails', '~> 3.2.1'
+  gem 'coffee-rails', '>= 3.2.1'
   gem 'haml-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -21,7 +21,8 @@ group :assets do
 end
 
 gem 'puma'
-gem 'devise'
+gem 'protected_attributes'
+gem 'devise', '3.0.0.rc'
 
 gem 'jquery-rails'
 gem 'therubyracer', :platform => :ruby

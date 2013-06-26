@@ -13,12 +13,12 @@
 			=link_to [comment.link, comment], {:confirm => 'Are you sure?', :method => :delete} do
 				%span.item.delete= "Delete"
 
-	- if comment.childComment.all != []
+	- if comment.childcomment.all != []
 		.comment.child
-			- comment.childComment.each do |childcomment|
+			- comment.childcomment.each do |singleChild|
 				%span.author
-					=childcomment.author
+					=singleChild.author
 				%span.body
-					=childcomment.body
+					=singleChild.body
 				%span.time
-					=childcomment.created_at.strftime("%b %d, %Y | %H:%M").to_s
+					=singleChild.created_at.strftime("%b %d, %Y | %H:%M").to_s
