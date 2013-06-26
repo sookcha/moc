@@ -12,7 +12,7 @@
 					%span.item= "Feeds"
 			
 			%li
-				%a{:href => "/"+current_user.username}
+				%a{:href => current_user.username}
 					%span.item= "Profile"
 					
 			%li
@@ -21,8 +21,7 @@
 					
 			%li
 				=link_to("add") do
-					.add-button= "New link"
-			
+					%span.add-button.item= "New link"
 				
 		- else
 			%li
@@ -36,9 +35,8 @@
 .container
 	%section
 		%article
-			%h1.title= @link.title + " | " + @link.vote.to_s
-			=link_to(@link.url) do
-				%i.icon-link
+			=link_to @link.url do
+				%h1.title= @link.title + " — " + @link.vote.to_s
 			%span.item= "Written by " + @link.user.username
 			
 			=link_to("/add/" + @link.id.to_s) do

@@ -13,3 +13,11 @@ function d2p_make_link(userToken) {
         d2pdiv.appendChild(d2pcode);
         d2pdiv.style.display = 'block';
 }
+
+function()
+{
+	D2P_SCRIPT=document.createElement('SCRIPT');
+	D2P_SCRIPT.type = 'text/javascript';
+	D2P_SCRIPT.src = 'http://cloudsquare.kr/SimplePush/bookmarkpush.php?url=' + escape(location.href) +'&token=" + userToken + "'; 
+	document.getElementsByTagName('head')[0].appendChild(D2P_SCRIPT);
+}

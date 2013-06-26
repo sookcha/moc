@@ -2,6 +2,7 @@ Moc::Application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :tokens,:only => [:create, :destroy]
+      resources :links,:only => [:create, :destroy]
     end
   end
   
@@ -24,15 +25,18 @@ Moc::Application.routes.draw do
     get 'register', :to => 'devise/registrations#new'
   end
     
-  post '/follow/:userName', :to => 'users#follow', via: [:get]
-  delete '/unfollow/:userName', :to =>'users#unfollow', via: [:get]
+  post '/follow/:userName', :to => 'users#follow'
+  get '/api/create', :to => 'links#createAPI'
+  
+  delete '/unfollow/:userName', :to =>'users#unfollow'
   
   match '/vote/:id/:updown', :to => "links#updateVote", via: [:get]
   
   match '/feed', :to => 'feeds#index', via: [:get]
   match '/add/', :to => "links#new", via: [:get]
   match '/add/:url', :to => 'links#new', via: [:get]
-  match '/discuss/:title', :to => 'links#show', via: [:get]
+  match '/discuss/add', :to => 'links#new', via: [:get]
+  match '/discuss/:title', :to => 'links#show', via: [:get], :except => ['/add']
   match '/:userName' => 'users#show', :except => ['/feed','/follow','/api'], via: [:get]
   match '/comment/add/:id', :to => "child_comments#new", via: [:get]
 end

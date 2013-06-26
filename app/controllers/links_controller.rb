@@ -1,5 +1,6 @@
 require 'open-uri'
 require 'cgi'
+require 'json'
 
 class LinksController < ApplicationController
   # GET /links
@@ -55,12 +56,35 @@ class LinksController < ApplicationController
 
     respond_to do |format|
       if @link.save
-        format.html { redirect_to @link, notice: 'Link was successfully created.' }
+        format.html { redirect_to "/discuss/" + @link.title, notice: 'Link was successfully created.' }
         format.json { render json: @link, status: :created, location: @link }
       else
         format.html { render action: "new" }
         format.json { render json: @link.errors, status: :unprocessable_entity }
       end
+    end
+  end
+  
+  def createAPI
+    @user = User.find_by_authentication_token(params[:auth_token])
+    url = params[:url]
+    title = params[:title]
+    
+    params = ActionController::Parameters.new({
+      link: {
+        user_id:@user.id,
+        vote: 0,
+        content: "",
+        url: url,
+        title:title
+      }
+    })
+    
+    @link = Link.new(params[:link])
+    
+    if @link.save
+      render :status=>200, :json=>{status: :created}
+      
     end
   end
   
