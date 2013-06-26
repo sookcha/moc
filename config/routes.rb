@@ -8,7 +8,7 @@ Moc::Application.routes.draw do
   resources :feeds
   
   resources :comments do
-    resource :childcomments
+    resource :childcomments, controller: "child_comments"
   end
   
   resources :links do
@@ -34,5 +34,5 @@ Moc::Application.routes.draw do
   match '/add/:url', :to => 'links#new', via: [:get]
   match '/discuss/:title', :to => 'links#show', via: [:get]
   match '/:userName' => 'users#show', :except => ['/feed','/follow','/api'], via: [:get]
-  #match '/comment/add/:id', :to => "childComments#new", via: [:get]
+  match '/comment/add/:id', :to => "child_comments#new", via: [:get]
 end
