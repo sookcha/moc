@@ -49,8 +49,7 @@
 							%i.icon-star.right
 						=link_to "/add/" + activity.id.to_s do
 							%i.icon-bookmark.right
-							
-						
-					
+			=paginate @feeds
+			
 	- else
 		%p="Nothing to see here. Move along."

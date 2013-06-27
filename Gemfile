@@ -20,6 +20,9 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+# Using Kaminari to pagniate pages.
+gem 'kaminari'
+
 gem 'puma'
 gem 'protected_attributes'
 gem 'devise', '3.0.0.rc'
