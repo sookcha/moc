@@ -1,7 +1,9 @@
 class Link < ActiveRecord::Base
   belongs_to :user
   has_many :comments
+  
   attr_accessible :content, :user_id, :title, :url, :vote
+  
   paginates_per 20
   
   def self.from_users_followed_by(user)

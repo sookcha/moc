@@ -1,4 +1,5 @@
 Moc::Application.routes.draw do  
+      
   namespace :api do
     namespace :v1 do
       resources :tokens,:only => [:create, :destroy]
@@ -17,16 +18,19 @@ Moc::Application.routes.draw do
   end
   
   devise_for :users
-	root :to => 'main#index'
-      
+  
   devise_scope :user do
-    get 'login', :to => 'devise/sessions#new'
-    delete 'logout', :to => 'devise/sessions#destroy'
-    get 'register', :to => 'devise/registrations#new'
-  end
-    
+      get 'login', :to => 'devise/sessions#new'
+      delete 'logout', :to => 'devise/sessions#destroy'
+      get 'register', :to => 'devise/registrations#new'
+    end
+  
+  
+	root :to => 'main#index'
+  
   post '/follow/:userName', :to => 'users#follow'
   get '/api/create', :to => 'links#createAPI'
+  get '/discuss/:title', :to => 'links#show', :except => ['/add']
   
   delete '/unfollow/:userName', :to =>'users#unfollow'
   
@@ -36,7 +40,6 @@ Moc::Application.routes.draw do
   match '/add/', :to => "links#new", via: [:get]
   match '/add/:url', :to => 'links#new', via: [:get]
   match '/discuss/add', :to => 'links#new', via: [:get]
-  match '/discuss/:title', :to => 'links#show', via: [:get], :except => ['/add']
   match '/:userName' => 'users#show', :except => ['/feed','/follow','/api'], via: [:get]
   match '/comment/add/:id', :to => "child_comments#new", via: [:get]
 end

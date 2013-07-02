@@ -67,6 +67,7 @@ class LinksController < ApplicationController
   
   def createAPI
     @user = User.find_by_authentication_token(params[:auth_token])
+    
     url = params[:url]
     title = params[:title]
     
@@ -128,5 +129,5 @@ class LinksController < ApplicationController
       format.html { redirect_to root_url }
       format.json { head :no_content }
     end
-  end
+  end  
 end
