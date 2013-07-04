@@ -34,6 +34,8 @@
 	%span.right= "Follower : " + @user.followers.count.to_s
 	%span.right= " | "
 	
+	%span.right{"data-uri" => "#{request.host}:#{request.port}/websocket"}
+
 	- if @user.following?(current_user,@user)
 		=link_to("unfollow/" + @userName, :method => :delete) do
 			%span.right= "Unfollow"
@@ -41,15 +43,9 @@
 	- else
 		=link_to("follow/" + @userName, :method => :post) do
 			%span.right= "Follow"
-	%span.right= " | "
-		
-	%span.right= current_user.authentication_token
-	
+			
 	%a{:href=>"javascript:(function(){MOC_SCRIPT=document.createElement('SCRIPT');MOC_SCRIPT.type%20=%20'text/javascript';MOC_SCRIPT.src%20=%20'http://moc.dev/api/create?url='%20+%20escape(location.href)%20+'&auth_token=" + current_user.authentication_token + "'+'&title='+document.title+'&content=';%20document.getElementsByTagName('head')[0].appendChild(MOC_SCRIPT);})();"} Moc
 			
-	
-		
-		
 	- @links.each do |link|
 		.activity
 			=link_to("/discuss/" + link.title) do

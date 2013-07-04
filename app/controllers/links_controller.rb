@@ -77,7 +77,8 @@ class LinksController < ApplicationController
         vote: 0,
         content: "",
         url: url,
-        title:title
+        title:title,
+        private: true
       }
     })
     
@@ -87,6 +88,21 @@ class LinksController < ApplicationController
     
     if @link.save
       render :status=>200, :json=>{status: :created}
+    end
+  end
+  
+  def publicize
+    @link = Link.find(params[:id])
+    if User.find_by_username(@link.user.username).id == current_user.id	
+      if params[:method] == "public"
+        @link.private = false
+      else
+        @link.private = true
+      end
+    
+      @link.save
+    
+      redirect_to "/discuss/" + @link.title
     end
   end
   

@@ -37,6 +37,8 @@ Moc::Application.routes.draw do
   
   match '/vote/:id/:updown', :to => "links#updateVote", via: [:get]
   
+  match '/change/:id/:method', :to => "links#publicize", via: [:get]
+  
   match '/feed', :to => 'feeds#index', via: [:get]
   match '/add/', :to => "links#new", via: [:get]
   match '/add/:url', :to => 'links#new', via: [:get]

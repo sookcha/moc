@@ -11,18 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130704054055) do
+ActiveRecord::Schema.define(version: 20130704111017) do
 
   create_table "childcomments", force: true do |t|
     t.string   "author"
     t.string   "body"
     t.integer  "comment_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "collections", force: true do |t|
-    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -53,7 +47,7 @@ ActiveRecord::Schema.define(version: 20130704054055) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "vote"
-    t.integer  "collection_id"
+    t.boolean  "private"
   end
 
   create_table "relationships", force: true do |t|

@@ -2,7 +2,7 @@ class Link < ActiveRecord::Base
   belongs_to :user
   has_many :comments
   
-  attr_accessible :content, :user_id, :title, :url, :vote
+  attr_accessible :content, :user_id, :title, :url, :vote, :private
   
   paginates_per 20
   

@@ -5,7 +5,7 @@ jQuery(document).ready(function(){
 		var commentPosition = jQuery('#comment').offset().top;
 		jQuery('html, body').animate({scrollTop:commentPosition}, 'slow');
 	}
-	
+		
 	$("ul li").hover(
 	    function() {
 				$("i.right", this).show();

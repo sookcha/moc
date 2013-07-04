@@ -37,10 +37,20 @@
 		%article
 			=link_to @link.url do
 				%h1.title= @link.title
+			- if isPrivate(@link)
+				%i.icon-lock
 			%span.item= "by " + @link.user.username + " — "
 						
 			=link_to("/add/" + @link.id.to_s) do
 				%span Read it later
+			- if User.find_by_username(@link.user.username).id == current_user.id	
+				%span —	
+				- if isPrivate(@link)
+					=link_to("/change/" + @link.id.to_s + "/public") do
+						%span Publicize
+				- else
+					=link_to("/change/" + @link.id.to_s + "/private") do
+						%span Make private
 									
 			.content
 				%span.item.content= @link.content

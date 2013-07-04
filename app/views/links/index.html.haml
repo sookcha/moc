@@ -7,10 +7,7 @@
 			%li
 				= link_to("links") do
 					%span.item= "Links"
-			%li
-				= link_to("feed") do
-					%span.item= "Feeds"
-			
+								
 			%li
 				%a{:href => current_user.username}
 					%span.item= "Profile"
@@ -38,6 +35,7 @@
 			%li.feed
 				=link_to link.url do
 					%span.linkTitle= link.title
+				- if isPrivate(link)
+					%i.icon-lock
 				=link_to "/discuss/" + link.title do
 					%i.icon-link
-		
