@@ -8,6 +8,7 @@ Moc::Application.routes.draw do
   end
   
   resources :feeds
+  resources :collection
   
   resources :comments do
     resource :childcomments, controller: "child_comments"

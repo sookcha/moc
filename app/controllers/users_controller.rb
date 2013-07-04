@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def show
     @userName = params[:userName]
     @user = User.find_by_username(@userName)
+    @user.ensure_authentication_token!
     @links = @user.links
   end
   
