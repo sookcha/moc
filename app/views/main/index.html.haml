@@ -39,12 +39,13 @@
 				- @feeds_page.sort.reverse.each do |activity|
 					- if activity.private != true
 						%li.feed
+							%span.author= activity.user.username
 							=link_to activity.url do
 								%span.linkTitle= activity.title					
 							=link_to "/discuss/" + activity.title do
 								%i.icon-link
 							=link_to "/vote/" + activity.id.to_s + "/up" do
-								%i.icon-star.right
+								%i.icon-thumbs-up.right
 							=link_to "/add/" + activity.id.to_s do
 								%i.icon-bookmark.right
 				

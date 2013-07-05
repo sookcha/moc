@@ -39,3 +39,13 @@
 					%i.icon-lock
 				=link_to "/discuss/" + link.title do
 					%i.icon-link
+				=link_to "/vote/" + link.id.to_s + "/up" do
+					%i.icon-thumbs-up.right
+				=link_to "/add/" + link.id.to_s do
+					%i.icon-bookmark.right
+				- if isPrivate(link)
+					=link_to("/change/" + link.id.to_s + "/public") do
+						%i.icon-unlock-alt.right
+				- else
+					=link_to("/change/" + link.id.to_s + "/private") do
+						%i.icon-lock.right

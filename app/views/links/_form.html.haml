@@ -6,7 +6,7 @@
 	
 	.content
 		= f.text_area :content, :rows => 3, :placeholder => "Content", :class => "contentfield"
-		= f.label "Private"
+		= f.label "Is Private?"
 		= f.check_box :private
 	.actions
 		= f.submit 'Publish', :class => "button"
