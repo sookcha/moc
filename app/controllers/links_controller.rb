@@ -116,7 +116,7 @@ class LinksController < ApplicationController
     end    
     @link.save
     
-    redirect_to "/discuss/" + @link.title
+    redirect_to URI::encode("/discuss/" + @link.title)
   end
   
   # PUT /links/1

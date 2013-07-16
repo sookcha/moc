@@ -39,7 +39,19 @@
 				- @feeds_page.sort.reverse.each do |activity|
 					- if activity.private != true
 						%li.feed
-							%span.author= activity.user.username
+							- case activity.vote
+								- when 0..10
+									%span.author.green= activity.user.username
+								- when 10..20
+									%span.author.blue= activity.user.username
+								- when 20..30
+									%span.author.yello= activity.user.username
+								- when 30..40
+									%span.author.hot-light= activity.user.username
+								- when 50..100
+									%span.author.hot= activity.user.username
+									
+								
 							=link_to activity.url do
 								%span.linkTitle= activity.title					
 							=link_to "/discuss/" + activity.title do
