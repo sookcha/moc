@@ -23,7 +23,7 @@ end
 # Using Kaminari to pagniate pages.
 gem 'kaminari'
 
-gem 'puma'
+gem 'thin'
 gem 'protected_attributes'
 gem 'devise', '3.0.0.rc'
 
