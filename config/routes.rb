@@ -1,5 +1,8 @@
+
 Moc::Application.routes.draw do  
       
+  devise_for :users
+
   namespace :api do
     namespace :v1 do
       resources :tokens,:only => [:create, :destroy]
@@ -13,11 +16,7 @@ Moc::Application.routes.draw do
   resources :comments do
     resource :childcomments, controller: "child_comments"
   end
-  
-  resources :links do
-    resources :comments
-  end
-  
+
   devise_for :users
   
   devise_scope :user do
@@ -26,6 +25,9 @@ Moc::Application.routes.draw do
       get 'register', :to => 'devise/registrations#new'
     end
   
+  resources :links do
+    resources :comments
+  end
   
 	root :to => 'main#index'
   
