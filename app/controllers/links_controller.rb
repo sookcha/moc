@@ -1,3 +1,5 @@
+#encoding: UTF-8
+
 require 'open-uri'
 require 'cgi'
 require 'json'
@@ -56,7 +58,7 @@ class LinksController < ApplicationController
 
     respond_to do |format|
       if @link.save
-        format.html { redirect_to "/discuss/" + @link.title, notice: 'Link was successfully created.' }
+        format.html { redirect_to "/" , notice: 'Link was successfully created.' }
         format.json { render json: @link, status: :created, location: @link }
       else
         format.html { render action: "new" }
@@ -71,6 +73,18 @@ class LinksController < ApplicationController
     url = params[:url]
     title = params[:title]
     
+    if title.include? "."
+      title = title.gsub!(".","")
+    end
+    
+    if title.include? ","
+      title = title.gsub!(",","")
+    end
+    
+    if title.include? "'"
+      title = title.gsub!("'","")
+    end    
+    
     params = ActionController::Parameters.new({
       link: {
         user_id:@user.id,
@@ -78,7 +92,7 @@ class LinksController < ApplicationController
         content: "",
         url: url,
         title:title,
-        private: true
+        private: false
       }
     })
     
@@ -126,7 +140,7 @@ class LinksController < ApplicationController
 
     respond_to do |format|
       if @link.update_attributes(params[:link])
-        format.html { redirect_to @link, notice: 'Link was successfully updated.' }
+        format.html { redirect_to @link.title, notice: 'Link was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
